@@ -6,11 +6,49 @@
 # Una vez terminada cada opción debe volver a mostrarse el menú y 
 # así sucesivamente hasta que escoja la opción “FIN”
 
+# Función que muestra el menu principal.
+function showMenu {
+	echo "Menú		[R]Resto"
+	echo "		[C]Contar"
+	echo "		[D]Doble"
+	echo "		[F]Fin"
+}
+
+# Función que recupera la opción elegida en el menu.
+function getMenuOpt {
+	read -p 'Opciones: ' optVar
+}
+
+# Función FIN
+function fin {
+	echo "Fin del programa"
+	exit
+}
+
+# Main Function
+
 if (( $# >= 2 ))
 then
-	echo "2 o +"
-	echo "Parametro 1 ${1}"
-	echo "parametro 2 ${2}"
+	while [ 1 == 1 ]
+	do
+		showMenu
+		getMenuOpt
+		if [ $optVar == 'f' ] || [ $optVar == 'F' ]
+		then
+			fin
+		elif [ $optVar == 'c' ] || [ $optVar == 'C' ]
+		then
+			echo "Función Contar"
+		elif [ $optVar == 'd' ] || [ $optVar == 'D' ]
+		then
+			echo "Función Doble"
+		elif [ $optVar == 'r' ] || [ $optVar == 'R' ]
+		then
+			echo "Función Resto"
+		else 
+			echo "Opción no valida"
+		fi
+	done
 else
-	echo "Menos de 2"
+	echo "Error de sintaxis"
 fi
