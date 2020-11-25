@@ -5,3 +5,12 @@
 # programar, mediante funciones, las opciones según se detallan a continuación. 
 # Una vez terminada cada opción debe volver a mostrarse el menú y 
 # así sucesivamente hasta que escoja la opción “FIN”
+
+if (( $# >= 2 ))
+then
+	echo "2 o +"
+	echo "Parametro 1 ${1}"
+	echo "parametro 2 ${2}"
+else
+	echo "Menos de 2"
+fi
