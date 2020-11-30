@@ -41,7 +41,6 @@ function doble {
 	do
 		local temp=${arr[$index]/\.*/}
 		arr[$index]=$temp
-		echo ${arr[$index]}
 		if (( ${arr[$index]} >= $menor )) && (( ${arr[$index]} <= $mayor ))
 		then
 			local entre[$index]=$(( ${arr[$index]} * 2 ))
