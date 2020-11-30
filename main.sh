@@ -25,6 +25,28 @@ function fin {
 	exit
 }
 
+# Función DOBLE
+
+function doble {
+	local arr=($*)
+	if (( ${arr[0]} <= ${arr[1]} ))
+	then
+		local menor=${arr[0]}
+		local mayor=${arr[1]}
+	else
+		local menor=${arr[1]}
+		local mayor=${arr[0]}
+	fi
+	for (( index=2; index<=${#arr[*]}-1; index++ ))
+	do
+		if (( ${arr[$index]} >= $menor )) && (( ${arr[$index]} <= $mayor ))
+		then
+			local entre[$index]=$(( ${arr[$index]} * 2 ))
+		fi
+	done
+	echo "El doble de los números que cumplen la condición son:" ${entre[*]}
+}
+
 # Main Function
 
 if (( $# >= 2 ))
@@ -41,7 +63,7 @@ then
 			echo "Función Contar"
 		elif [ $optVar == 'd' ] || [ $optVar == 'D' ]
 		then
-			echo "Función Doble"
+			doble $*
 		elif [ $optVar == 'r' ] || [ $optVar == 'R' ]
 		then
 			echo "Función Resto"
